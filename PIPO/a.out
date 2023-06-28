@@ -1,0 +1,100 @@
+#! /usr/share/iverilog-0.10.0/bin/vvp
+:ivl_version "0.10.0 (devel)" "(v0_9_6)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+:vpi_module "v2009";
+S_0xaf64f0 .scope module, "PIPO_tb" "PIPO_tb" 2 4;
+ .timescale 0 0;
+v0xb077e0_0 .var "clk", 0 0;
+v0xb078b0_0 .var "d", 3 0;
+v0xb07980_0 .net "q", 3 0, v0xb07670_0;  1 drivers
+S_0xaf47b0 .scope module, "dut" "PIPO" 2 10, 3 3 0, S_0xaf64f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 4 "d"
+    .port_info 2 /OUTPUT 4 "q"
+v0xaf4980_0 .net "clk", 0 0, v0xb077e0_0;  1 drivers
+v0xb07590_0 .net "d", 3 0, v0xb078b0_0;  1 drivers
+v0xb07670_0 .var "q", 3 0;
+E_0xaf6900 .event posedge, v0xaf4980_0;
+    .scope S_0xaf47b0;
+T_0 ;
+    %wait E_0xaf6900;
+    %ix/load 1, 3, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.0, 4;
+    %load/x1p 8, v0xb07590_0, 1;
+    %jmp T_0.1;
+T_0.0 ;
+    %mov 8, 2, 1;
+T_0.1 ;
+; Save base=8 wid=1 in lookaside.
+    %ix/load 0, 1, 0;
+    %ix/load 1, 3, 0;
+    %assign/v0/x1 v0xb07670_0, 0, 8;
+    %ix/load 1, 2, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.2, 4;
+    %load/x1p 8, v0xb07590_0, 1;
+    %jmp T_0.3;
+T_0.2 ;
+    %mov 8, 2, 1;
+T_0.3 ;
+; Save base=8 wid=1 in lookaside.
+    %ix/load 0, 1, 0;
+    %ix/load 1, 2, 0;
+    %assign/v0/x1 v0xb07670_0, 0, 8;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.4, 4;
+    %load/x1p 8, v0xb07590_0, 1;
+    %jmp T_0.5;
+T_0.4 ;
+    %mov 8, 2, 1;
+T_0.5 ;
+; Save base=8 wid=1 in lookaside.
+    %ix/load 0, 1, 0;
+    %ix/load 1, 1, 0;
+    %assign/v0/x1 v0xb07670_0, 0, 8;
+    %load/v 8, v0xb07590_0, 1; Only need 1 of 4 bits
+; Save base=8 wid=1 in lookaside.
+    %ix/load 0, 1, 0;
+    %ix/load 1, 0, 0;
+    %assign/v0/x1 v0xb07670_0, 0, 8;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0xaf64f0;
+T_1 ;
+    %set/v v0xb077e0_0, 0, 1;
+    %set/v v0xb078b0_0, 0, 4;
+    %delay 100, 0;
+    %movi 8, 9, 4;
+    %set/v v0xb078b0_0, 8, 4;
+    %end;
+    .thread T_1;
+    .scope S_0xaf64f0;
+T_2 ;
+    %delay 5, 0;
+    %load/v 8, v0xb077e0_0, 1;
+    %inv 8, 1;
+    %set/v v0xb077e0_0, 8, 1;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0xaf64f0;
+T_3 ;
+    %vpi_call/w 2 24 "$dumpfile", "dump.vcd" {0 0};
+    %vpi_call/w 2 25 "$dumpvars" {0 0};
+    %delay 300, 0;
+    %vpi_call/w 2 27 "$finish", 2'sb01 {0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.sv";
+    "design.sv";
