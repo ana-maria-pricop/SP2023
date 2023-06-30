@@ -1,0 +1,102 @@
+$date
+	Fri Jun 30 06:34:40 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module readfile_tb $end
+$var wire 32 ! out [31:0] $end
+$var reg 1 " clk $end
+$var reg 32 # in [31:0] $end
+$scope module dut $end
+$var wire 1 " clk $end
+$var wire 32 $ in [31:0] $end
+$var reg 5 % index [4:0] $end
+$var reg 32 & out [31:0] $end
+$var integer 32 ' i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1001 '
+bx &
+b0 %
+bx $
+bx #
+0"
+bx !
+$end
+#10
+b1 %
+b10100 !
+b10100 &
+1"
+#20
+0"
+#30
+b10 %
+b10010 !
+b10010 &
+1"
+#40
+0"
+#50
+b11 %
+b1001000111 !
+b1001000111 &
+1"
+#60
+0"
+#70
+b100 %
+b101 !
+b101 &
+1"
+#80
+0"
+#90
+b101 %
+b10010110 !
+b10010110 &
+1"
+#100
+0"
+#110
+b110 %
+b1000011 !
+b1000011 &
+1"
+#120
+0"
+#130
+b111 %
+b1110001 !
+b1110001 &
+1"
+#140
+0"
+#150
+b1000 %
+b11000001000 !
+b11000001000 &
+1"
+#160
+0"
+#170
+b1001 %
+b10001001 !
+b10001001 &
+1"
+#180
+0"
+#190
+b1010 %
+b1100 !
+b1100 &
+1"
+#200
+0"
